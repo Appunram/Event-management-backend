@@ -1,3 +1,4 @@
+const path = require('path');
 const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
@@ -27,7 +28,14 @@ try {
     console.log(error);
 }
 
+if (process.env.NODE_ENV === "production") {
+    app.use(express.static("frontend/build"));
+}
 app.use(routes);
+app.get("*", function (req, res) {
+    res.sendFile(path.join(__dirname, "./frontend/build/index.html"));
+});
+
 
 app.listen(PORT, () => {
     console.log(`Listening on ${PORT}`);
