@@ -24,10 +24,6 @@ const UserSchema = new mongoose.Schema(
       required: true,
       unique: true,
     },
-    marks: {
-      type: Number,
-      default: 0
-    },
     password: {
       type: String,
       required: true,
