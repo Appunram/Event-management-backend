@@ -138,12 +138,12 @@ module.exports = {
         }
     },
 
-    async deleteRegistration(req, res) {
+    async deleteEventRegistration(req, res) {
         try {
             const { eventId } = req.params;
             const registration = await Registration.findOne({ event: eventId });
-            await registration.remove();
-            return res.status(204).send();
+            const original = await Registration.findById(registration._id)
+            return res.status(200).json(original);
         } catch (error) {
             res.status(400).send(error);
         }

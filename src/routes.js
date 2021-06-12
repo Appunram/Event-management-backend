@@ -55,7 +55,7 @@ routes.get('/registrations',RegistrationController.getAllRegistrations);
 routes.delete('/event/:eventId/unregister',MiddleWare.protect,MiddleWare.admin,RegistrationController.deleteRegistration);
 routes.get('/isregister/:eventId',MiddleWare.protect,RegistrationController.isRegistered);
 routes.get('/myevents',MiddleWare.protect,RegistrationController.getMyEvents);
-routes.delete('/manageregistrations/:eventId',MiddleWare.protect,MiddleWare.admin,EventController.deleteEvent);
+routes.delete('/manageregistrations/:eventId',MiddleWare.protect,MiddleWare.admin,RegistrationController.deleteEventRegistration);
 
 
 //payment
