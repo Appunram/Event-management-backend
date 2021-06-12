@@ -142,8 +142,8 @@ module.exports = {
         try {
             const { eventId } = req.params;
             const registration = await Registration.findOne({ event: eventId });
-            const original = await Registration.findById(registration._id)
-            return res.status(200).json(original);
+            await Registration.findByIdAndDelete(registration._id)
+            return res.status(204).send();
         } catch (error) {
             res.status(400).send(error);
         }
