@@ -3,15 +3,12 @@ const moment = require("moment");
 const PDFDocument = require("pdfkit");
 
 
-const CertificateGenerator = async () => {
+const CertificateGenerator = async (name) => {
     // Create the PDF document
     const doc = new PDFDocument({
         layout: "landscape",
         size: "A4",
     });
-
-    // The name
-    const name = "Sophia Sweet"
 
     // Pipe the PDF into an name.pdf file
     doc.pipe(fs.createWriteStream(`${name}.pdf`));
