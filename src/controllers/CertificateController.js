@@ -1,4 +1,4 @@
-const certificategenerator = require("./utils/CertificateGenerator");
+const certificategenerator = require("../utils/CertificateGenerator");
 
 module.exports = {
     async generatecertificate(req,res){

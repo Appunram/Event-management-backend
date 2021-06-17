@@ -37,4 +37,4 @@ const CertificateGenerator = async () => {
     doc.end();
 }
 
-module.exports = doc;
+module.exports = CertificateGenerator;
