@@ -18,7 +18,7 @@ const CertificateGenerator = async (name) => {
 
     // Remember to download the font
     // Set the font to Dancing Script
-    doc.font("fonts/DancingScript-VariableFont_wght.ttf");
+    //doc.font("fonts/DancingScript-VariableFont_wght.ttf");
 
     // Draw the name
     doc.fontSize(60).text(name, 20, 265, {
