@@ -6,6 +6,7 @@ const RegistrationController = require("./controllers/RegistrationController");
 const PaymentController = require("./controllers/PaymentController");
 const AttendanceController = require("./controllers/AttendanceController");
 const CompilerController = require("./controllers/CompilerController");
+const CertificateController = require("./controllers/CertificateController");
 
 const upload = require("./config/multer");
 const MiddleWare = require("./middleware/authmiddleware");
@@ -57,6 +58,8 @@ routes.get('/isregister/:eventId',MiddleWare.protect,RegistrationController.isRe
 routes.get('/myevents',MiddleWare.protect,RegistrationController.getMyEvents);
 routes.delete('/manageregistrations/:eventId',MiddleWare.protect,MiddleWare.admin,RegistrationController.deleteEventRegistration);
 
+//CertificateGenerator
+routes.post('/generatecertificate',CertificateController.generatecertificate);
 
 //payment
 routes.post('/payment',PaymentController.PaymentGateway);
