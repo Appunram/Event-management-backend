@@ -10,7 +10,7 @@ module.exports = {
             });
             const name = req.body.name;
             res.setHeader("Content-Type", "application/pdf");
-            res.setHeader("Content-Disposition", `attachment; filename=${name}.pdf`);
+            res.setHeader("Content-Disposition", `attachment;filename=${name}.pdf`);
             doc.pipe(res);
             doc.image("images/certificate.png", 0, 0, { width: 842 });
             doc.fontSize(60).text(name, 20, 265, {
