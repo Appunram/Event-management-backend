@@ -8,6 +8,7 @@ module.exports = {
                 layout: "landscape",
                 size: "A4",
             });
+            var stream = doc.pipe(blobStream());
             const name = req.body.name;
             res.setHeader("Content-Type", "application/pdf");
             res.setHeader("Content-Disposition", `attachment;filename=${name}.pdf`);
@@ -20,7 +21,9 @@ module.exports = {
                 align: "center"
             });
             doc.end();
-            return;
+            stream.on('finish', function () {
+                iframe.src = stream.toBlobURL('application/pdf');
+            })
         } catch (error) {
             console.log(error)
             return res.status(400).json(error)
