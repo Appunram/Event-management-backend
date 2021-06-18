@@ -8,7 +8,7 @@ module.exports = {
                 layout: "landscape",
                 size: "A4",
             });
-            const { name } = req.body;
+            const name = req.body.name;
             res.setHeader("Content-Type", "application/pdf");
             res.setHeader("Content-Disposition", `attachment; filename=${name}.pdf`);
             doc.pipe(res);
