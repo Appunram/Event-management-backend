@@ -7,6 +7,7 @@ const PaymentController = require("./controllers/PaymentController");
 const AttendanceController = require("./controllers/AttendanceController");
 const CompilerController = require("./controllers/CompilerController");
 const CertificateController = require("./controllers/CertificateController");
+const AdminController = require("./controllers/AdminController");
 
 const upload = require("./config/multer");
 const MiddleWare = require("./middleware/authmiddleware");
@@ -67,5 +68,8 @@ routes.post('/payment',PaymentController.PaymentGateway);
 //compiler
 routes.post('/run',CompilerController.runProgram);
 routes.get('/status',CompilerController.programStatus);
+
+//admincontroller 
+routes.post('/sendmails',MiddleWare.protect,AdminController.sendmails);
 
 module.exports = routes;
