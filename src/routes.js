@@ -70,6 +70,6 @@ routes.post('/run',CompilerController.runProgram);
 routes.get('/status',CompilerController.programStatus);
 
 //admincontroller 
-routes.post('/sendmails/:eventId',AdminController.sendmails);
+routes.post('/sendmails/:eventId',MiddleWare.protect,AdminController.sendmails);
 
 module.exports = routes;
